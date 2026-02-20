@@ -1,0 +1,336 @@
+{
+    "info": {
+        "name": "Notes API Tests",
+        "_postman_id": "notes-api-collection",
+        "description": "Postman collection for Notes App API testing",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "TC001 - Check API health",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/health-check",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "health-check"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC002 - Create new user with valid data",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/register",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "register"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"email\":\"test@mail.com\",\"password\":\"Pass123!\"}"
+                }
+            }
+        },
+        {
+            "name": "TC003 - Login with valid credentials",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/login",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "login"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"email\":\"test@mail.com\",\"password\":\"Pass123!\"}"
+                }
+            }
+        },
+        {
+            "name": "TC004 - Fetch user profile with valid token",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/profile",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "profile"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC005 - Update user info",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/profile",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "profile"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\":\"Updated\"}"
+                }
+            }
+        },
+        {
+            "name": "TC006 - Request reset link",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/forgot-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "forgot-password"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"email\":\"test@mail.com\"}"
+                }
+            }
+        },
+        {
+            "name": "TC007 - Verify token",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/verify-reset-password-token",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "verify-reset-password-token"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"token\":\"validtoken\"}"
+                }
+            }
+        },
+        {
+            "name": "TC008 - Reset with token",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/reset-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "reset-password"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"token\":\"validtoken\",\"password\":\"NewPass123!\"}"
+                }
+            }
+        },
+        {
+            "name": "TC009 - Change existing password",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/change-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "change-password"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"oldPassword\":\"Pass123!\",\"newPassword\":\"NewPass123!\"}"
+                }
+            }
+        },
+        {
+            "name": "TC010 - Logout user",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/logout",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "logout"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC011 - Delete account",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/users/delete-account",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "delete-account"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC012 - Create note",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"title\":\"Note1\",\"content\":\"Text\"}"
+                }
+            }
+        },
+        {
+            "name": "TC013 - Fetch all notes",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC014 - Fetch note",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes",
+                        "{id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "TC015 - Update note",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes",
+                        "{id}"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"title\":\"Updated\"}"
+                }
+            }
+        },
+        {
+            "name": "TC016 - Mark complete",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes",
+                        "{id}"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"completed\":true}"
+                }
+            }
+        },
+        {
+            "name": "TC017 - Delete note",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/notes/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notes",
+                        "{id}"
+                    ]
+                }
+            }
+        }
+    ]
+}
